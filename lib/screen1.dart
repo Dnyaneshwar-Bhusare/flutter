@@ -12,8 +12,8 @@ class _Screen1State extends State<Screen1> {
   Widget build(BuildContext context) {
     var userprovider=Provider.of<UserProvider>(context);
     return Scaffold(
-body: StreamBuilder<Object>(
-  stream: userprovider.fetchData(),
+body: FutureBuilder(
+  future: userprovider.fetchData(),
   builder: (context, snapshot) {
     return     (userprovider.getUsers==null)?Text("loading"):ListView.builder(
       itemCount: userprovider.getUsers.users.length,
